@@ -61,7 +61,7 @@ class CountDown extends Component  {
   //   }
   // }
 
-  init() {
+  init( status = true ) {
     const { time, lable, defaultText, tooltipsMap } = this.props;
     this.time = time;
     this.lable = lable;
@@ -71,7 +71,7 @@ class CountDown extends Component  {
     this.setState({
       buttonText: defaultText,
       cdMark: false,
-      status: true
+      status: status
     })
   }
 
@@ -106,9 +106,9 @@ class CountDown extends Component  {
     this.setState({ status });
   }
 
-  reset() {
+  reset( status = true ) {
     clearTimeout(this.timekey);
-    this.init();
+    this.init( status );
   }
 
   render() {
@@ -121,7 +121,7 @@ class CountDown extends Component  {
         overProps[ky[0]] = ky[1];
       }
     })
-    
+
     return (
       <div className={`countdown ${status === true ? '' : 'wranning'}`}>
         <button disabled={cdMark} onClick={this.checkInfo} {... overProps}>

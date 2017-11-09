@@ -39,8 +39,7 @@ class TestCountButton extends Component {
   onSubmit = reset => {
     reset = reset || this.cdBtn.reset;
     setTimeout(function() {
-      reset();
-      alert('已经重置！')
+      reset('type2');
     }, 2000);
   }
 

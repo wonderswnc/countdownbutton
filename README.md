@@ -14,14 +14,14 @@
 <CountDown />
 ```
 
-> 所有的参数都不为必传参数, 除此之外的参数会继承到组件的button元素上面
+> 所有的参数都不为必传参数, 除此之外的参数会继承到组件的button元素上面。提供的reset函数接受一个重置后的状态作为参数。
 
 | 参数 | 说明 | 类型 | 默认值 |
 |:---:|:----:|:---:|:-----:|
-| checkForm | 点击按钮后检测表单信息 | Function | () => true | 
-| onSubmit | 点击按钮后, 发生的事件。 比如向后台去数据, 第一个参数为组件的重置函数 | Function | () => {}|
+| checkForm | 点击按钮后检测表单信息, 应该保证一直有一个返回值, 返回值为true表示初始状态 | Function | () => true | 
+| onSubmit | 点击按钮后, 发生的事件。 比如向后台去数据, 第一个参数为组件的reset函数 | Function | () => {}|
 | onComplete | 倒计时结束后需要发生的事件 | Function | () => {}|
-| tooltipsMap | 警告或者错误提示对象 | Object | {'type1': '对不起, 请输入电话号码','type2': '改电话已经被注册, 请直接登录','type3': '请输入正确的电话号码'} |
+| tooltipsMap | 警告或者错误提示对象 | Object | {'type1': '对不起, 请输入电话号码','type2': '该电话已经被注册, 请直接登录','type3': '请输入正确的电话号码'} |
 | time | 倒计时的时长 | Number | 5 |
 | label | 倒计时开始后按钮的文字,可自定义, 用‘$’符号占据时间的位置 | String | '$秒后可再次发送验证码' 
 | defaultText | 默认状态下按钮的文字 | String | '发送验证码'|
@@ -35,6 +35,7 @@
 ## 例一
 
 > 利用onSubmit和onComplete可以在按钮倒计时开始前和结束后执行一些事件
+> 点击按钮，开始会弹出弹框，倒计时开始，结束计时后会出发onComplete函数
 
 ```jsx
 
@@ -57,6 +58,7 @@ const action_2 = () => {
 ## 例二
 
 > label以及defaultText分别允许自定义button的倒计时文字和默认状态的文字。额外的参数会转移到组件的button元素上面。
+> 这里我们给组件设置了一个额外的props，他会自动传递到button里面去
 
 ```jsx
 
@@ -71,6 +73,7 @@ const action_2 = () => {
 ## 例三
 
 > tooltipsMap可以允许自定义按钮提示信息, checkForm函数可以接受一个检查表单的方法，返回值是button的状态, 返回true将执行onSubmit的函数以及开始倒计时
+> 在没有输入名字或者密码的时候，按钮会进入相应的你设置的tooltips状态，不会进行下一步的submit操作
 
 ```jsx
 
@@ -104,15 +107,15 @@ const checkForm = () => {
 
 ## 例四
 
-> 可以通过onSubmit函数定义一个计时器开始的前一个动作，比如可以异步的请求服务器, 这个函数提供第一个参数为组件的重置函数。当然你也可以通过设置一个ref, 来得到组件的reset函数。
+> 可以通过onSubmit函数定义一个计时器开始的前一个动作，比如可以异步的请求服务器, 这个函数提供第一个参数为组件的reset函数。当然你也可以通过设置一个ref, 来得到组件的reset函数。
+> 点击按钮待信息填写完整之后，会触发submit事件，可以在这里使用reset函数将组件置于某种状态
 
 ```jsx
 
 const onSubmit = reset => {
   reset = reset || this.cdBtn.reset;
   setTimeout(function() {
-    reset();
-    alert('已经重置！')
+    reset('type2');
   }, 2000);
 }
 
