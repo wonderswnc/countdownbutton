@@ -8,7 +8,6 @@ class CountDown extends Component  {
     checkForm: () => true,
     onSubmit: () => {},
     onComplete: () => {},
-    status: true,
     tooltipsMap: {'type1': '对不起, 请输入电话号码','type2': '改电话已经被注册, 请直接登录','type3': '请输入正确的电话号码'},
     time: 5,
     lable: '$秒后可再次发送验证码',
@@ -115,10 +114,17 @@ class CountDown extends Component  {
   render() {
 
     const { status, cdMark, buttonText } = this.state;
+    const defaultProps = ['checkForm','onSubmit','onComplete','tooltipsMap','time','lable','defaultText'];
+    const overProps = {};
+    Object.entries(this.props).forEach(ky => {
+      if (defaultProps.indexOf(ky[0]) === -1) {
+        overProps[ky[0]] = ky[1];
+      }
+    })
     
     return (
       <div className={`countdown ${status === true ? '' : 'wranning'}`}>
-        <button disabled={cdMark} onClick={this.checkInfo}>
+        <button disabled={cdMark} onClick={this.checkInfo} {... overProps}>
           { buttonText }
         </button>
         {

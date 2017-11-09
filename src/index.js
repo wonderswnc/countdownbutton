@@ -49,6 +49,7 @@ class TestCountButton extends Component {
 
     return (
       <div className="test_wrapper">
+        <span className="github_icon"><a href="">我的github</a></span>
         <div className="test test_1">
           <h5>用例一</h5>
           <div className="content">
@@ -58,6 +59,9 @@ class TestCountButton extends Component {
               onComplete = {this.action_2}
             />
           </div>
+          <div className="img-wrapper">
+           <img src="/src/images/test1.jpeg"/>
+          </div>
         </div>
         <div className="test test_2">
           <h5>用例二</h5>
@@ -65,33 +69,43 @@ class TestCountButton extends Component {
             <CountDownButton
               lable = {'还有$s钟才可以提交'}
               defaultText = {'提交'}
+              style={{fontSize: '16px'}}
             />
+          </div>
+          <div className="img-wrapper">
+           <img src="/src/images/test2.jpeg"/>
           </div>
         </div>
         <div className="test test_3">
           <h5>用例三</h5>
           <div className="content">
             <div className="content-form">
-              <label>用户名： <input type="text" name="username" ref={username => this.username = username}/></label>
-              <label>密码： <input type="password" name="passwd" ref={passwd => this.passwd = passwd}/></label>
+              <label><span>用户名： </span><input type="text" name="username" ref={username => this.username = username}/></label>
+              <label><span>密码： </span><input type="password" name="passwd" ref={passwd => this.passwd = passwd}/></label>
             </div>
             <CountDownButton 
               tooltipsMap = {tips}
               checkForm = {this.checkForm_1}
             />
           </div>
+          <div className="img-wrapper">
+           <img src="/src/images/test3.jpeg"/>
+          </div>
         </div>
         <div className="test test_4">
           <h5>用例四</h5>
           <div className="content">
             <div className="content-form">
-              <label>电话号码: <input type="text" name="input" ref={input => this.input = input}/></label>
+              <label><span>电话号码：</span><input type="text" name="input" ref={input => this.input = input}/></label>
             </div>
             <CountDownButton 
               ref={cdBtn => this.cdBtn = cdBtn}
               checkForm={this.checkForm_2}
               onSubmit={this.onSubmit}
             />
+          </div>
+          <div className="img-wrapper">
+           <img src="/src/images/test4.jpeg"/>
           </div>
         </div>
       </div>
