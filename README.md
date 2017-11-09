@@ -30,7 +30,7 @@
 
 # 示例
 
-> 相关示例的表现可以去这里[]查看
+> 相关示例的表现可以去[这里](https://wonderswnc.github.io/countdownbutton/)查看
 
 ## 例一
 
