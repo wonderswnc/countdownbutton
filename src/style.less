@@ -5,12 +5,17 @@ a {text-decoration: none;color: #000000;}
   position: fixed;
   top: 20px;
   right: 200px;
-  display: inline-block;
-  width: 80px;
-  line-height: 80px;
-  background-color: #eeeeee;
-  padding: 10px;
-  border-radius: 50%;
+  &:after {
+    content: '点我点我';
+    font-size: 12px;
+    animation: fade 2s infinite ease-in-out;
+  }
+}
+
+@keyframes fade{
+  0% { opacity: 1 }
+  50% { opacity: 0 }
+  0% {opacity: 1}
 }
 
 .test_wrapper {

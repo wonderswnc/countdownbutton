@@ -54,7 +54,7 @@ const action_2 = () => {
 
 ## 例二
 
-> label以及defaultText分别允许自定义button的倒计时文字和默认状态的文字。额外的参数会转移到组件的button元素上面
+> label以及defaultText分别允许自定义button的倒计时文字和默认状态的文字。额外的参数会转移到组件的button元素上面。
 
 ```jsx
 
