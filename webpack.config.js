@@ -11,6 +11,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: ROOT_PATH,
+    publicPath: '',
     filename: 'js/[name]-[hash:5].js'
   },
   resolve: {
@@ -19,12 +20,21 @@ module.exports = {
   module: {
     rules : [
       {
-        test: /.jsx?$/,
+        test: /\.jsx?$/,
         use: 'babel-loader',
         include: path.join(__dirname, 'src')
       }, {
-        test: /.less$/,
+        test: /\.less$/,
         use: ['style-loader', 'css-loader', 'less-loader']
+      }, {
+        test: /\.png$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'static/images/[name].[ext]'
+          }
+        }]
       }
     ]
   },
