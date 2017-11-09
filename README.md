@@ -18,10 +18,10 @@
 
 | 参数 | 说明 | 类型 | 默认值 |
 |:---:|:----:|:---:|:-----:|
-| checkForm | 点击按钮后检测表单信息 | Function | () => true | 
+| checkForm | 点击按钮后检测表单信息 | Function | () => true | 
 | onSubmit | 点击按钮后, 发生的事件。 比如向后台去数据, 第一个参数为组件的重置函数 | Function | () => {}|
-| onComplete | 倒计时结束后需要发生的事件 | Function | () => {}|
-| tooltipsMap | 警告或者错误提示对象 | Object | {'type1': '对不起, 请输入电话号码','type2': '改电话已经被注册, 请直接登录','type3': '请输入正确的电话号码'} |
+| onComplete | 倒计时结束后需要发生的事件 | Function | () => {}|
+| tooltipsMap | 警告或者错误提示对象 | Object | {'type1': '对不起, 请输入电话号码','type2': '改电话已经被注册, 请直接登录','type3': '请输入正确的电话号码'} |
 | time | 倒计时的时长 | Number | 5 |
 | label | 倒计时开始后按钮的文字,可自定义, 用‘$’符号占据时间的位置 | String | '$秒后可再次发送验证码' 
 | defaultText | 默认状态下按钮的文字 | String | '发送验证码'|
@@ -61,6 +61,7 @@ const action_2 = () => {
 <CountDownButton
   lable = {'还有$s钟才可以提交'}
   defaultText = {'提交'}
+  style={{fontSize: '16px'}}
 >
 
 ```
