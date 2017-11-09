@@ -35,6 +35,7 @@
 ## 例一
 
 > 利用onSubmit和onComplete可以在按钮倒计时开始前和结束后执行一些事件
+---
 > 点击按钮，开始会弹出弹框，倒计时开始，结束计时后会出发onComplete函数
 
 ```jsx
@@ -58,6 +59,7 @@ const action_2 = () => {
 ## 例二
 
 > label以及defaultText分别允许自定义button的倒计时文字和默认状态的文字。额外的参数会转移到组件的button元素上面。
+---
 > 这里我们给组件设置了一个额外的props，他会自动传递到button里面去
 
 ```jsx
@@ -73,6 +75,7 @@ const action_2 = () => {
 ## 例三
 
 > tooltipsMap可以允许自定义按钮提示信息, checkForm函数可以接受一个检查表单的方法，返回值是button的状态, 返回true将执行onSubmit的函数以及开始倒计时
+---
 > 在没有输入名字或者密码的时候，按钮会进入相应的你设置的tooltips状态，不会进行下一步的submit操作
 
 ```jsx
@@ -108,6 +111,7 @@ const checkForm = () => {
 ## 例四
 
 > 可以通过onSubmit函数定义一个计时器开始的前一个动作，比如可以异步的请求服务器, 这个函数提供第一个参数为组件的reset函数。当然你也可以通过设置一个ref, 来得到组件的reset函数。
+---
 > 点击按钮待信息填写完整之后，会触发submit事件，可以在这里使用reset函数将组件置于某种状态
 
 ```jsx
